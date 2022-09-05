@@ -1,6 +1,4 @@
-﻿
-
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 unsigned int arr_size = 10;const int maxrng = 70;
 const int minrng = -20;
