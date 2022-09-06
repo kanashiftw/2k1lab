@@ -46,5 +46,5 @@ int main()
             }
         }
     }
-  delete[] ary;
+
 }
