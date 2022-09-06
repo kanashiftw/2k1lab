@@ -1,10 +1,10 @@
-﻿#include <iostream>
-#include <string>
+#include <iostream>
+#include<random>
 unsigned int arr_size = 10;const int maxrng = 70;
 const int minrng = -20;
 
 int rrand(int range_min, int range_max) {
-    return rand() % (range_max - range_min + 1) + range_min;
+    return rand()%(range_max - range_min  + 1);
 }
 double* processArray(double arr[],int arrsize) {
     for (unsigned int i = 0; i < arrsize; i++) {
@@ -43,7 +43,7 @@ double findmaxindex(double array[]) {
 double* finallarr(double array[],int rewrite) {
     for (int i = findmaxindex(array); i < arr_size; i++){
         
-    array[i] = rewrite - 48;
+    array[i] = rewrite;
     }
     return array;
 }
@@ -51,6 +51,7 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
     double* ary = new double[arr_size];
+    srand(time(0));
     std::cout << "Заполненный массив:\n" << std::endl;
    
     processArray(ary, arr_size);
@@ -64,9 +65,9 @@ int main()
         std::cout << ary[i] << ",  ";
     }
     std::cout << "\n";
-    
-    std::cout << "Введите значение для подмены\n" << std::endl;
-    int rewrite = std::cin.get();
+    std::cout << "Введите значение для подмены\n";
+    int rewrite;
+    std::cin >> rewrite;
     std::cout << "Финальный массив:\n" << std::endl;
     finallarr(ary, rewrite);
     for (int i = 0; i < arr_size; i++) {
@@ -79,4 +80,3 @@ int main()
     // ...
     return 0;
 }
-
