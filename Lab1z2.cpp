@@ -1,8 +1,9 @@
-﻿#include <iostream>
+#include <iomanip>
+#include <iostream>
+#include <sstream>
 const unsigned int arr_size_x = 5;
 const unsigned int arr_size_y = 5;
 unsigned int ary[arr_size_x][arr_size_y];
-
 
 long double fact(int N)
 {
@@ -21,24 +22,29 @@ int main()
         std::cout << "\n";
     for (unsigned int k = 0; k < arr_size_y; k++) {
         ary[i][k] = fact(i + k);
-        std::cout << ary[i][k] << ", ";
+        if (k == 0) {
+            std::cout << ary[i][k];
+        }
+        else {
+            std::cout << std::setw(8) << ary[i][k];
+        }
     }
 } 
     std::cout << "\n";
+    std::cout << "\n";
     std::cout << "Измененный массив:\n" << std::endl;
-    std::cout<<"\n";
     int solo [(arr_size_x * arr_size_y) - (2*arr_size_x)];
-    for (unsigned int i = 0; i < arr_size_x; i++) {
-        if (i != 0) {
-            if (i % 2 == 0) {
-                i++;
-            }
-        }
+    for (unsigned int i = 0; i < arr_size_x; i+=2) {
         for (unsigned int k = 0; k < arr_size_y; k++) {
-            solo[i] = ary[i][k];
-            std::cout << solo[i] << ", ";
+            if (i == 0 && k == 0) {
+              solo[i] = ary[i][k];
+              std::cout << solo[i];
+            }
+            else {
+                solo[i] = ary[i][k];
+                std::cout << std::setw(8) << solo[i];
+            }
         }
     }
 
 }
-
