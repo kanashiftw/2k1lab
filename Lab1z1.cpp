@@ -53,16 +53,27 @@ int main()
     double* ary = new double[arr_size];
     srand(time(0));
     std::cout << "Заполненный массив:\n" << std::endl;
-   
     processArray(ary, arr_size);
     for (int i = 0; i < arr_size; i++) {
-        std::cout << ary[i] << ",  ";
+        if (i == arr_size - 1) {
+            std::cout << ary[i] << ". ";
+        }
+        else {
+            std::cout << ary[i] << ",  ";
+        }
     }
     std::cout <<"\n";
+    int max = findmaxindex(ary);
+    std::cout << "\nMAX: " << ary[max]<<std::endl<<std::endl;
     std::cout << "Отформатированный массив:\n" << std::endl;
     formated(ary);
     for (int i = 0; i < arr_size; i++) {
-        std::cout << ary[i] << ",  ";
+        if (i == arr_size - 1) {
+            std::cout << ary[i] << ". ";
+        }
+        else {
+            std::cout << ary[i] << ",  ";
+        }
     }
     std::cout << "\n";
     std::cout << "Введите значение для подмены\n";
@@ -71,12 +82,15 @@ int main()
     std::cout << "Финальный массив:\n" << std::endl;
     finallarr(ary, rewrite);
     for (int i = 0; i < arr_size; i++) {
-        std::cout << ary[i] << ",  ";
+        if (i == arr_size - 1) {
+            std::cout << ary[i] << ". ";
+        }
+        else {
+            std::cout << ary[i] << ",  ";
+        }
     }
     std::cout << "\n";
     delete[] ary;
-
-
     // ...
     return 0;
 }
