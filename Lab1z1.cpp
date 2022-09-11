@@ -1,17 +1,21 @@
 #include <iostream>
 #include<random>
-unsigned int arr_size = 10;const int maxrng = 70;
+unsigned int arr_size = 10;
+//Задание допустимых значений для метода rrand
+const int maxrng = 70;
 const int minrng = -20;
-
+//Метод rrand для заполнения массива
 int rrand(int range_min, int range_max) {
     return rand()%(range_max - range_min  + 1);
 }
+//Метод заполнения массива
 double* processArray(double arr[],int arrsize) {
     for (unsigned int i = 0; i < arrsize; i++) {
         arr[i] = rrand(-minrng, maxrng);
     }
     return arr;
 }
+//Метод поиска максимального числа
 double findmax(double array[]) {
     int a_max = array[0];
     for (int i = 1; i < arr_size; i++)
@@ -21,6 +25,7 @@ double findmax(double array[]) {
     }
     return a_max;
 }
+//Метод изменения массива, согласно варианту
 double* formated(double array[]) {
     double max = findmax(array);
   
@@ -29,6 +34,7 @@ double* formated(double array[]) {
     }
     return array;
 }
+//Метод поиска индекса максимального значения
 double findmaxindex(double array[]) {
     int index = 0;
     for (int i = 0; i < arr_size; i++)
@@ -40,6 +46,8 @@ double findmaxindex(double array[]) {
     }
     return index;
 }
+//Метод формирования массива путем замены элементов 
+//после максимального значения включительно на заданное число
 double* finallarr(double array[],int rewrite) {
     for (int i = findmaxindex(array); i < arr_size; i++){
         
@@ -63,8 +71,7 @@ int main()
         }
     }
     std::cout <<"\n";
-    int max = findmaxindex(ary);
-    std::cout << "\nMAX: " << ary[max]<<std::endl<<std::endl;
+    std::cout << "\nMAX: " << findmax(ary) << std::endl << std::endl;
     std::cout << "Отформатированный массив:\n" << std::endl;
     formated(ary);
     for (int i = 0; i < arr_size; i++) {
